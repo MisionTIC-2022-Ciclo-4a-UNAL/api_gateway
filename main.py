@@ -30,14 +30,14 @@ from waitress import serve
 
 
 import utils
-from course_blueprints import course_blueprints
-from department_blueprints import department_blueprints
-from enrollment_blueprints import enrollment_blueprints
-from permission_blueprints import permission_blueprints
-from reports_blueprints import reports_blueprints
-from rol_blueprints import rol_blueprints
-from student_blueprints import student_blueprints
-from user_blueprints import user_blueprints
+from academic_backend.course_blueprints import course_blueprints
+from academic_backend.department_blueprints import department_blueprints
+from academic_backend.enrollment_blueprints import enrollment_blueprints
+from security_backend.permission_blueprints import permission_blueprints
+from academic_backend.reports_blueprints import reports_blueprints
+from security_backend.rol_blueprints import rol_blueprints
+from academic_backend.student_blueprints import student_blueprints
+from security_backend.user_blueprints import user_blueprints
 
 # Create flask application
 app = Flask(__name__)
