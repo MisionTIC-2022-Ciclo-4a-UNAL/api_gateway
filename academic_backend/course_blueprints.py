@@ -47,8 +47,13 @@ def get_course_by_id(id_: str) -> dict:
 @course_blueprints.route("/course/insert", methods=['POST'])
 def insert_course() -> dict:
     course = request.get_json()
+    department_id = course.get('department').get('_id')
+    del course['department']
     url = f'{url_base}/insert'
     response = requests.post(url, headers=HEADERS, json=course)
+    course_id = response.json().get('_id')
+    url_relation = f'{url_base}/{course_id}/department/{department_id}'
+    requests.put(url_relation)
     return response.json()
 
 
