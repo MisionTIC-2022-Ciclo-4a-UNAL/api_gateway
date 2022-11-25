@@ -39,7 +39,7 @@ def get_all_users() -> dict:
 
 @user_blueprints.route("/user/<int:id_>", methods=['GET'])
 def get_user_by_id(id_: int) -> dict:
-    url = f'{url_base}/{id_}'
+    url = f'{url_base}/by_id/{id_}'
     response = requests.get(url, headers=HEADERS)
     return response.json()
 

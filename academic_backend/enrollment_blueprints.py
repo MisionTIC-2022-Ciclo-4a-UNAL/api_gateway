@@ -46,7 +46,11 @@ def get_enrollment_by_id(id_: str) -> dict:
 @enrollment_blueprints.route("/enrollment/insert", methods=['POST'])
 def insert_enrollment() -> dict:
     enrollment = request.get_json()
-    url = f'{url_base}/insert'
+    course_id = enrollment.get('course').get('_id')
+    del enrollment['course']
+    student_id = enrollment.get('student').get('_id')
+    del enrollment['student']
+    url = f'{url_base}/insert/course/{course_id}/student/{student_id}'
     response = requests.post(url, headers=HEADERS, json=enrollment)
     return response.json()
 
