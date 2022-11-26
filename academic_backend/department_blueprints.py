@@ -61,7 +61,7 @@ def update_department(id_: str) -> dict:
 
 
 @department_blueprints.route("/department/delete/<string:id_>", methods=['DELETE'])
-def delete_department(id_: str) -> dict:
+def delete_department(id_: str) -> tuple:
     url = f'{url_base}/delete/{id_}'
     response = requests.delete(url, headers=HEADERS)
     return {"message": "processed"}, response.status_code

@@ -62,7 +62,7 @@ def update_rol(id_: int) -> dict:
 
 
 @rol_blueprints.route("/rol/delete/<int:id_>", methods=['DELETE'])
-def delete_rol(id_: int) -> dict:
+def delete_rol(id_: int) -> tuple:
     url = f'{url_base}/delete/{id_}'
     response = requests.delete(url, headers=HEADERS)
     return {"message": "processed"}, response.status_code

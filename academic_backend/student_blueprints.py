@@ -61,7 +61,7 @@ def update_student(id_: str) -> dict:
 
 
 @student_blueprints.route("/student/delete/<string:id_>", methods=['DELETE'])
-def delete_student(id_: str) -> dict:
+def delete_student(id_: str) -> tuple:
     url = f'{url_base}/delete/{id_}'
     response = requests.delete(url, headers=HEADERS)
     return {"message": "processed"}, response.status_code
