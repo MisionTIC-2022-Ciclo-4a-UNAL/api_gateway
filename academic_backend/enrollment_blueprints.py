@@ -64,7 +64,7 @@ def update_enrollment(id_: str) -> dict:
 
 
 @enrollment_blueprints.route("/enrollment/delete/<string:id_>", methods=['DELETE'])
-def delete_enrollment(id_: str) -> dict:
+def delete_enrollment(id_: str) -> tuple:
     url = f'{url_base}/delete/{id_}'
     response = requests.delete(url, headers=HEADERS)
     return {"message": "processed"}, response.status_code
